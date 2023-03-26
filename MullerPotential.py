@@ -83,7 +83,7 @@ class MullerPotential(nn.Module):
         steps = 100
         x1 = torch.linspace(x1_min, x1_max, steps=steps)
         x2 = torch.linspace(x2_min, x2_max, steps=steps)
-        grid_x1, grid_x2 = torch.meshgrid(x1, x2)
+        grid_x1, grid_x2 = torch.meshgrid(x1, x2, indexing = 'ij')
         grid = torch.stack([grid_x1, grid_x2], dim=-1)
         x = grid.reshape((-1, 2))
 
